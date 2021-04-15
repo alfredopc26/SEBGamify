@@ -1,0 +1,25 @@
+
+{
+    "admin": {
+        "dashboard": true,
+        "gestion_estudiante": true,
+        "gestion_ecoins": true,
+        "gestion_asignatura": true,
+        "configuracion": true,
+        "table_main": "getTableUsersPending"
+    },
+    "estudiante": {
+        "dashboard": true,
+        "gestion_estudiante": false,
+        "gestion_ecoins": true,
+        "gestion_asignatura": true,
+        "configuracion": false
+    },
+    "profesor": {
+        "dashboard": true,
+        "gestion_estudiante": true,
+        "gestion_ecoins": true,
+        "gestion_asignatura": true,
+        "configuracion": false
+    }
+}
