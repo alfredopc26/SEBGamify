@@ -2,24 +2,30 @@
 {
     "admin": {
         "dashboard": true,
-        "gestion_estudiante": true,
-        "gestion_ecoins": true,
-        "gestion_asignatura": true,
+        "gestion_estudiante": false,
+        "gestion_ecoins": false,
+        "gestion_asignatura": false,
         "configuracion": true,
         "table_main": "getTableUsersPending"
     },
     "estudiante": {
         "dashboard": true,
         "gestion_estudiante": false,
+        "gestion_actividades": true,
         "gestion_ecoins": true,
         "gestion_asignatura": true,
-        "configuracion": false
+        "configuracion": false,
+        "table_main": "getTableActivityStudent",
+        "active_data_student": true
     },
     "profesor": {
         "dashboard": true,
         "gestion_estudiante": true,
+        "gestion_actividades": true,
         "gestion_ecoins": true,
         "gestion_asignatura": true,
-        "configuracion": false
+        "configuracion": false,
+        "table_main": "getTableAsignaturas",
+        "active_data_student": false
     }
 }

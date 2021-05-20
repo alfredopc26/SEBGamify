@@ -14,7 +14,8 @@
           <img src="dist/img/icon_base.png" class="img-circle elevation-2 bg-white" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $user['nombre']." ".$user['apellido']; ?></a>
+          <a href="#" class="d-block"><?php echo $user->name." ".$user->last_name; ?></a>
+          <span class="d-block text-white"><?php echo strtoupper($user->kind); ?></span>
         </div>
       </div>
 
@@ -32,10 +33,18 @@
                 </a>
            </li>
            <li class="nav-item" <?php if(!$mod['gestion_estudiante']){ echo "style='display: none'"; }?>>
-            <a href="gestion_estudiante.php" class="nav-link">
+            <a href="gestion_estudiantes.php" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Gestion de estudiantes
+              </p>
+            </a>
+           </li>
+           <li class="nav-item" <?php if(!$mod['gestion_actividades']){ echo "style='display: none'"; }?>>
+            <a href="gestion_actividades.php" class="nav-link">
+              <i class="nav-icon fas fa-tasks"></i>
+              <p>
+                Gestion de Actividades
               </p>
             </a>
            </li>
@@ -48,7 +57,7 @@
             </a>
            </li>
            <li class="nav-item" <?php if(!$mod['gestion_asignatura']){ echo "style='display: none'"; }?>>
-            <a href="gestion_asignatura.php" class="nav-link">
+            <a href="gestion_asignaturas.php" class="nav-link">
               <i class="nav-icon fas fa-list"></i>
               <p>
                 Gestion de Asignaturas
@@ -65,7 +74,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="gestion_usuarios.php" class="nav-link">
+                <a href="gestion_user.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Gestionar Usuarios</p>
                 </a>

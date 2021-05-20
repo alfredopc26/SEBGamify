@@ -77,12 +77,93 @@ switch($getAction){
         $db = new ConnectionMySQL();
         $db->CreateConnection();
 
-        $stmt = $db->ExecuteQuery("SELECT * FROM SEBgamify.usuario WHERE estado='P' "); 
+        $stmt = $db->ExecuteQuery("SELECT * FROM SEBgamify.usuario WHERE estado='C' "); 
         while ($row = $stmt->fetch_object()){
             $user_pend[] = $row;
         }
 
         include '../tables/table_users_pending.php';
+    break;
+
+    case "getTableStudenAll":
+
+        $db = new ConnectionMySQL();
+        $db->CreateConnection();
+
+        $stmt = $db->ExecuteQuery("SELECT B.email, B.nombre, B.apellido, A.semestre, C.nombre as asignatura, A.estado, A.ecoins FROM SEBgamify.estudiantes A INNER JOIN  usuario B ON A.uid = B.uid INNER JOIN  asignatura C ON A.asignatura = C.id WHERE A.estado='A' "); 
+        while ($row = $stmt->fetch_object()){
+            $students[] = $row;
+        }
+
+        include '../tables/table_student_all.php';
+    break;
+
+    case "getTableActivityStudent":
+
+        $db = new ConnectionMySQL();
+        $db->CreateConnection();
+
+        $stmt = $db->ExecuteQuery("SELECT * FROM SEBgamify.estudiantes A INNER JOIN  usuario B ON A.uid = B.uid WHERE A.estado='A' "); 
+        while ($row = $stmt->fetch_object()){
+            $students[] = $row;
+        }
+
+        include '../tables/table_task_pending.php';
+    break;
+
+
+    case "getTableAllUser":
+
+        $db = new ConnectionMySQL();
+        $db->CreateConnection();
+
+        $stmt = $db->ExecuteQuery("SELECT * FROM SEBgamify.usuario"); 
+        while ($row = $stmt->fetch_object()){
+            $users[] = $row;
+        }
+
+        include '../tables/table_users_all.php';
+    break;
+
+    case "getTableAllActivity":
+
+        $db = new ConnectionMySQL();
+        $db->CreateConnection();
+
+        $stmt = $db->ExecuteQuery("SELECT A.id, A.asunto, B.nombre, A.ecoins, A.fecha_entrega, A.estado FROM SEBgamify.actividades A INNER JOIN asignatura B ON A.asignatura = B.id"); 
+        while ($row = $stmt->fetch_object()){
+            $activity[] = $row;
+        }
+
+        include '../tables/table_config_ecoins.php';
+    break;
+
+    case "getTableAsignaturas":
+
+        $db = new ConnectionMySQL();
+        $db->CreateConnection();
+        $uid = $_GET['uid'];
+
+        $stmt = $db->ExecuteQuery("SELECT * FROM SEBgamify.rel_asig A INNER JOIN asignatura B ON A.id_as = B.id where A.id_us='$uid'"); 
+        while ($row = $stmt->fetch_object()){
+            $asign[] = $row;
+        }
+
+        include '../tables/table_asignaturas.php';
+    break;
+
+    case "getTableEcoins":
+
+        $db = new ConnectionMySQL();
+        $db->CreateConnection();
+        $uid = $_GET['uid'];
+
+        $stmt = $db->ExecuteQuery("SELECT * FROM SEBgamify.ecoins A INNER JOIN asignatura B ON A.asignatura = B.id"); 
+        while ($row = $stmt->fetch_object()){
+            $asign[] = $row;
+        }
+
+        include '../tables/table_store.php';
     break;
 
     case "approvaluid":

@@ -1,6 +1,6 @@
 <?php
-
 session_start();
+// echo $_SESSION['uid'];
 
 if($_SESSION['uid'] == "" ){
     header("Location: ./login.php");
@@ -11,9 +11,10 @@ if($_SESSION['uid'] == "" ){
     $auth= new auth();
     $user = $auth->dataUser($_SESSION['uid']);
 
-    if($user['estado'] == 'C'){
-        header("Location: ./recovery_pass.php?uid=".$user['uid']);
-    }elseif($user['estado'] != 'A'){
+    $userRol = $auth->dataUserRolStudent($user->uid);
+
+    if($user->estado != 'A'){
+        // var_dump($user);
         header("Location: ./login.php?error=1");
     }
 
@@ -22,13 +23,15 @@ if($_SESSION['uid'] == "" ){
 
     foreach($array as $k => $v){
 
-        if($user['tipo'] == $k){
+        if($user->kind == $k){
             $mod['dashboard'] = $v->dashboard;
             $mod['gestion_estudiante'] = $v->gestion_estudiante;
             $mod['gestion_ecoins'] = $v->gestion_ecoins;
             $mod['gestion_asignatura'] = $v->gestion_asignatura;
+            $mod['gestion_actividades'] = $v->gestion_actividades;
             $mod['configuracion'] = $v->configuracion;
             $mod['table_main'] = $v->table_main;
+            $mod['active_data_student'] = $v->active_data_student;
         }
     }
 

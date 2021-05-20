@@ -1,0 +1,42 @@
+{
+    "0000000000":{
+        "email":"calfredoperez26@gmail.com",
+        "name":"Administrador",
+        "last_name":"SEB",
+        "kind":"admin",
+        "level":7,
+        "subjects":"",
+        "password": "b1c2762879de4e1f124458b4c171d619883d94c55cea47703ac995b8ac10fcf6",
+        "estado": "A"
+        
+    },
+    "1051418846":{
+        "email":"cperez47@cuc.edu.co",
+        "name":"Carlos",
+        "last_name":"Perez",
+        "kind":"estudiante",
+        "level":7,
+        "subjects":[
+            "1",
+            "2",
+            "3"
+        ],
+        "password": "b1c2762879de4e1f124458b4c171d619883d94c55cea47703ac995b8ac10fcf6",
+        "estado": "A",
+        "uid": 13
+    },
+    "1065578829":{
+        "email":"kvenera@cuc.edu.co",
+        "name":"Karen",
+        "last_name":"Venera",
+        "kind":"profesor",
+        "level":0,
+        "subjects":[
+            "1",
+            "2"
+        ],
+        "password": "07ef7e37a416c355a7f74c5b7f87b08251adc9e3ef3e8e52ed52d9ff3d401f96",
+        "estado": "A",
+        "uid": 14
+    }
+}

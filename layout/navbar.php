@@ -35,6 +35,11 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
+      <li class="nav-item dropdown" <?php if(!$mod['active_data_student']){ echo "style='display: none'"; }?>>
+        <a class="nav-link" data-toggle="dropdown" href="#" >
+        <i class="fas fa-coins"></i> <?php echo $userRol->ecoins; ?>
+        </a>
+      </li>
       <li class="nav-item dropdown" id="logout_efect">
         <a class="nav-link" data-toggle="dropdown" href="#" id="logout">
         <i class="fas fa-sign-out-alt"></i> Cerrar Sesion

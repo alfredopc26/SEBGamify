@@ -1,4 +1,5 @@
 <?php
+$title = "Dashboard";
 
 include_once "./layout/header.php";
 include_once "./layout/navbar.php";
@@ -87,13 +88,14 @@ $(document).ready(getTable());
 function getTable(){
 
     var table = "<?php echo $mod['table_main']; ?>";
+    var uid = "<?php echo $user->uid; ?>";
 
     $('#ajax-table').html('<div class="loading" style="text-align: center"><img src="./dist/img/loader.gif"/><br/>Un momento, por favor...</div>');
         $.ajax({
             type: "GET",
             url: './script/response_ajax.php',
             dataType: 'html',
-            data: 'action='+table,
+            data: 'action='+table+'&uid='+uid,
             success: function(data){ 
                 console.log(data);
                 $('#ajax-table').html(data);       	   
@@ -101,10 +103,6 @@ function getTable(){
         });
 
 }
-
-
 </script>
-
-
 </body>
 </html>
